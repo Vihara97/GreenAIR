@@ -26,5 +26,33 @@ namespace GreenAIR.API.Controllers
         {
             return _oUserBL.GetAllUsers();
         }
+
+        [HttpGet("{id}")]
+        [ActionName("GetUserById")]
+        public UserModel GetUserById([FromRoute] int id)
+        {
+            return _oUserBL.GetUserById(id);
+        }
+
+        [HttpPost]
+        [ActionName("AddUser")]
+        public bool AddUser([FromBody] UserModel _user)
+        {
+            return _oUserBL.AddUser(_user);
+        }
+
+        [HttpPost]
+        [ActionName("EditUser")]
+        public bool EditUser([FromBody] UserModel _user)
+        {
+            return _oUserBL.EditUser(_user);
+        }
+
+        [HttpDelete("{id}")]
+        [ActionName("DeleteUserById")]
+        public bool DeleteUserById([FromRoute] int id)
+        {
+            return _oUserBL.DeleteUserById(id);
+        }
     }
 }

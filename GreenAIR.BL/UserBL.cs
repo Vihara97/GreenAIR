@@ -55,5 +55,38 @@ namespace GreenAIR.BL
                     return false;
             }
         }
+
+        public bool EditUser(UserModel _user)
+        {
+            var db = new DataContext();
+
+            var _existingUser = GetUserById(_user.UserID);
+            if (_existingUser != null)
+            {
+                User _userEntity = _userMapper.Map<UserModel, User>(_user);
+                db.Update(_userEntity);
+
+                if (db.SaveChanges() > 0)
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteUserById(int id)
+        {
+            var db = new DataContext();
+            User _deleteUser = db.Users.FirstOrDefault(x => x.UserID == id);
+            db.Remove(_deleteUser);
+
+            if (db.SaveChanges() > 0)
+                return true;
+            else
+                return false;
+        }
     }
 }
