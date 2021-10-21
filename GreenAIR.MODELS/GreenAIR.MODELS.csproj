@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AirContentRecordModel.cs" />
+    <Compile Include="ComboDTO.cs" />
     <Compile Include="IOTDeviceModel.cs" />
     <Compile Include="MonitoringCenterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

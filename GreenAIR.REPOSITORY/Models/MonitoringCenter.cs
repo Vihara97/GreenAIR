@@ -19,7 +19,9 @@ namespace GreenAIR.REPOSITORY.Models
         public string Name { get; set; }
 
         [Column(Order = 2)]
-        [StringLength(100)]
-        public string Location { get; set; }
+        public int Location { get; set; }
+
+        [Column(Order = 3)]
+        public int Status { get; set; }
     }
 }

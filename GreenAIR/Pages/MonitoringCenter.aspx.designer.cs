@@ -78,13 +78,13 @@ namespace GreenAIR.Pages
         protected global::System.Web.UI.WebControls.View View2;
 
         /// <summary>
-        /// groupCityCode control.
+        /// groupCenterId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl groupCityCode;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl groupCenterId;
 
         /// <summary>
         /// txtCenterID control.

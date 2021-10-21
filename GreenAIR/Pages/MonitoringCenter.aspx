@@ -141,7 +141,7 @@
                 </div>
                 <div class="box-body">
                     <div class="form-horizontal">
-                        <div id="groupCityCode" runat="server" class="form-group">
+                        <div id="groupCenterId" runat="server" class="form-group">
                             <label class="col-sm-2 control-label">Center ID:</label>
                             <div class="col-sm-4">
                                 <asp:TextBox ID="txtCenterID" runat="server" CssClass="form-control" MaxLength="10"></asp:TextBox>
@@ -164,7 +164,7 @@
                             <label class="col-sm-2 control-label">Status:</label>
                             <div class="col-sm-4">
                                 <label class="switch">
-                                    <asp:CheckBox ID="chkOnOff" runat="server" Checked="true" />
+                                    <asp:CheckBox ID="chkOnOff" runat="server" Checked="false" />
                                     <span class="slider round"></span>
                                 </label>
                             </div>
