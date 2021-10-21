@@ -1,0 +1,83 @@
+﻿.progress {
+    height: 10px;
+}
+
+.progress-bar {
+    height: 50px;
+    -webkit-animation: progress 1.5s ease-in-out forwards;
+    animation: progress 1.5s ease-in-out forwards;
+    font-size: smaller;
+    line-height: 11px;
+}
+
+    .progress-bar .title {
+        opacity: 0;
+        -webkit-animation: show 0.35s forwards ease-in-out 0.5s;
+        animation: show 0.35s forwards ease-in-out 0.5s;
+    }
+
+/*.progress-bar .tiny {
+    font-size: 10px !important
+}*/
+
+/*.w3-small {
+    font-size: 12px !important
+}
+
+.w3-medium {
+    font-size: 15px !important
+}
+
+.w3-large {
+    font-size: 18px !important
+}*/
+
+@-webkit-keyframes progress {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes progress {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@-webkit-keyframes show {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.progress.sixth .progress-bar {
+    background: linear-gradient(45deg, rgba(255,255,255,0.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.15) 75%, transparent 75%, transparent), linear-gradient(to right, #63b7ff, #3c8dbc );
+    background-repeat: repeat, no-repeat;
+    background-size: 1rem 1rem, cover;
+}
+/*.container .progress-bar.active,
+        .progress.active .progress-bar {
+            animation-direction: reverse;
+        }*/

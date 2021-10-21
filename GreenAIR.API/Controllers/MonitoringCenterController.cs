@@ -1,5 +1,5 @@
 ﻿using GreenAIR.BL;
-using GreenAIR.MODEL;
+using GreenAIR.MODELS;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;

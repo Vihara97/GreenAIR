@@ -1,0 +1,17 @@
+body,h1{margin:0}
+body,h2{/*color:#bbb*/}
+                 .clock,.container,ul{margin:0 auto}
+                 body{background:#202020;/*font:700 12px Arial,Helvetica,sans-serif;padding:0;*/min-width:960px}
+                 a{text-decoration:none;color:#00c6ff}
+                 h1{font:4em 400 Arial,Helvetica,sans-serif;padding:20px;text-align:center}
+                 h1 small{font:.2em 400 Arial,Helvetica,sans-serif;text-transform:uppercase;letter-spacing:.2em;line-height:5em;display:block}
+#Date,ul li{text-align:center;font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;color:#444; /*text-shadow:0 0 5px #030068*/}
+h2{font-weight:700;font-size:20px}
+h2,p{margin-bottom:10px}
+/*@font-face{font-family:BebasNeueRegular;src:url(BebasNeue-webfont.eot);src:url(BebasNeue-webfont.eot?#iefix) format('embedded-opentype'),url(BebasNeue-webfont.woff) format('woff'),url(BebasNeue-webfont.ttf) format('truetype'),url(BebasNeue-webfont.svg#BebasNeueRegular) format('svg');font-weight:400;font-style:normal}*/
+.container{width:960px;overflow:hidden}
+.clock{width:800px;padding:30px;border:0 solid #333;color:#fff}
+#Date{font-size:15px}
+ul{width:500px;padding:0;list-style:none;text-align:center}
+ul li{display:inline;font-size:4em}
+#point{position:relative;-moz-animation:mymove 1s ease infinite;-webkit-animation:mymove 1s ease infinite;padding-left:10px;padding-right:10px}@-webkit-keyframes mymove{0%,100%{opacity:1;/*text-shadow:0 0 20px #00c6ff*/}50%{opacity:0;text-shadow:none}}@-moz-keyframes mymove{0%,100%{opacity:1;/*text-shadow:0 0 20px #00c6ff*/}50%{opacity:0;text-shadow:none}}

@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GreenAIR.MODEL\GreenAIR.MODEL.csproj" />
+    <ProjectReference Include="..\GreenAIR.MODELS\GreenAIR.MODELS.csproj" />
     <ProjectReference Include="..\GreenAIR.REPOSITORY\GreenAIR.REPOSITORY.csproj" />
   </ItemGroup>
 

@@ -1,5 +1,5 @@
 ﻿using GreenAIR.BL;
-using GreenAIR.MODEL;
+using GreenAIR.MODELS;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -41,7 +41,7 @@ namespace GreenAIR.API.Controllers
             return _oUserBL.AddUser(_user);
         }
 
-        [HttpPost]
+        [HttpPut]
         [ActionName("EditUser")]
         public bool EditUser([FromBody] UserModel _user)
         {

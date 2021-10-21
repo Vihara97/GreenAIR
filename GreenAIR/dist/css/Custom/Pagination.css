@@ -1,0 +1,29 @@
+﻿.Pager span {
+    text-align: center;
+    color: #999;
+    display: inline-block;
+    width: 20px;
+    background-color: #A1DCF2;
+    margin-right: 3px;
+    line-height: 150%;
+    border: 1px solid #3AC0F2;
+}
+
+.Pager a {
+    text-align: center;
+    display: inline-block;
+    width: 20px;
+    background-color: #3AC0F2;
+    color: #fff;
+    border: 1px solid #3AC0F2;
+    margin-right: 3px;
+    line-height: 150%;
+    text-decoration: none;
+}
+
+.btn-group-xs > .btn, .btn-xs {
+    padding: 1px 5px;
+    font-size: 9px;
+    line-height: 1.5;
+    border-radius: 3px;
+}

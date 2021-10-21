@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using GreenAIR.MODEL;
+using GreenAIR.MODELS;
 using GreenAIR.REPOSITORY;
 using GreenAIR.REPOSITORY.Models;
 using System;
