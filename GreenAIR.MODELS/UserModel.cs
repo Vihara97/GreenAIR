@@ -11,6 +11,12 @@ namespace GreenAIR.MODELS
 
         public string Name { get; set; }
 
-        public string LocationAddress { get; set; }
+        public int LocationAddress { get; set; }
+
+        public string MobileNoOrEmail { get; set; }
+
+        public string Password { get; set; }
+
+        public int Status { get; set; }
     }
 }

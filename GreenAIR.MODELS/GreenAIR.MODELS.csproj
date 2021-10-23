@@ -76,6 +76,7 @@
     <Compile Include="MonitoringCenterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserModel.cs" />
+    <Compile Include="VegitationModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

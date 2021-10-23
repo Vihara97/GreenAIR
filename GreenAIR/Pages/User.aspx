@@ -1,22 +1,19 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Module.Master" AutoEventWireup="true" CodeBehind="MonitoringCenter.aspx.cs" Inherits="GreenAIR.Pages.MonitoringCenter" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Module.Master" AutoEventWireup="true" CodeBehind="User.aspx.cs" Inherits="GreenAIR.Pages.User" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <style type="text/css">
-        .switch
-        {
+    <style type="text/css">
+        .switch {
             position: relative;
             display: inline-block;
             width: 50px;
             height: 24px;
         }
-        
-        .switch input
-        {
-            opacity: 0;
-        }
-        
-        .slider
-        {
+
+            .switch input {
+                opacity: 0;
+            }
+
+        .slider {
             position: absolute;
             cursor: pointer;
             top: 0;
@@ -27,47 +24,41 @@
             -webkit-transition: .4s;
             transition: .4s;
         }
-        
-        .slider:before
-        {
-            position: absolute;
-            content: "";
-            height: 16px;
-            width: 16px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-        
-        input:checked + .slider
-        {
+
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 16px;
+                width: 16px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                -webkit-transition: .4s;
+                transition: .4s;
+            }
+
+        input:checked + .slider {
             background-color: #2196F3;
         }
-        
-        input:focus + .slider
-        {
+
+        input:focus + .slider {
             box-shadow: 0 0 1px #2196F3;
         }
-        
-        input:checked + .slider:before
-        {
+
+        input:checked + .slider:before {
             -webkit-transform: translateX(26px);
             -ms-transform: translateX(26px);
             transform: translateX(26px);
         }
-        
+
         /* Rounded sliders */
-        .slider.round
-        {
+        .slider.round {
             border-radius: 34px;
         }
-        
-        .slider.round:before
-        {
-            border-radius: 50%;
-        }
+
+            .slider.round:before {
+                border-radius: 50%;
+            }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
@@ -75,12 +66,11 @@
         <asp:View ID="View1" runat="server">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Monitoring Centers</h3>
+                    <h3 class="box-title">Users</h3>
                 </div>
                 <div class="box-body">
                     <div class="row">
                         <div class="col-sm-8">
-                            <asp:Button ID="btnAddNew" runat="server" Text="Add New" CssClass="btn btn-success" OnClick="btnAddNew_Click" />
                         </div>
                         <div class="col-sm-4">
                             <div class="input-group input-group-sm">
@@ -93,22 +83,22 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <asp:GridView ID="gvMonitoringCenters" runat="server" AutoGenerateColumns="False" AllowPaging="True" ShowHeaderWhenEmpty="True"
-                                Class="table table-bordered table-hover" OnPageIndexChanging="gvMonitoringCenters_PageIndexChanging" OnRowCommand="gvMonitoringCenters_RowCommand">
+                            <asp:GridView ID="gvUsers" runat="server" AutoGenerateColumns="False" AllowPaging="True" ShowHeaderWhenEmpty="True"
+                                Class="table table-bordered table-hover" OnPageIndexChanging="gvUsers_PageIndexChanging" OnRowCommand="gvUsers_RowCommand">
                                 <Columns>
-                                    <asp:TemplateField HeaderText="Center ID">
+                                    <asp:TemplateField HeaderText="User ID">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblgvCenterId" runat="server" Text='<%# Bind("CenterID") %>'></asp:Label>
+                                            <asp:Label ID="lblgvUserId" runat="server" Text='<%# Bind("UserID") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Name">
+                                    <asp:TemplateField HeaderText="Location">
                                         <ItemTemplate>
                                             <asp:Label ID="lblgvName" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Location">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblgvLocation" runat="server" Text='<%# Bind("Location") %>'></asp:Label>
+                                            <asp:Label ID="lblgvLocation" runat="server" Text='<%# Bind("LocationAddress") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField>
@@ -137,14 +127,14 @@
         <asp:View ID="View2" runat="server">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Monitoring Centers</h3>
+                    <h3 class="box-title">Users</h3>
                 </div>
                 <div class="box-body">
                     <div class="form-horizontal">
-                        <div id="groupCenterId" runat="server" class="form-group">
-                            <label class="col-sm-2 control-label">Center ID:</label>
+                        <div id="groupUserId" runat="server" class="form-group">
+                            <label class="col-sm-2 control-label">User ID:</label>
                             <div class="col-sm-4">
-                                <asp:TextBox ID="txtCenterID" runat="server" CssClass="form-control" MaxLength="10"></asp:TextBox>
+                                <asp:TextBox ID="txtUserID" runat="server" CssClass="form-control" MaxLength="10"></asp:TextBox>
                             </div>
                         </div>
                         <div class="form-group">
@@ -213,7 +203,7 @@
     </script>
     <script type="text/javascript">
         function AttachValidation() {
-            $('#<% = txtCenterID.ClientID %>').addClass('validate[required]');
+            $('#<% = txtUserID.ClientID %>').addClass('validate[required]');
             $('#<% = txtName.ClientID %>').addClass('validate[required]');
             $('#<% = ddlLocation.ClientID %>').addClass('validate[required]');
             $('#<% = chkOnOff.ClientID %>').addClass('validate[required]');

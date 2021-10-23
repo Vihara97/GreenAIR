@@ -344,5 +344,116 @@ namespace GreenAIR
         }
 
         #endregion IOT Device
+
+        #region Vegitation
+
+        public List<VegitationModel> GetAllVegitations()
+        {
+            List<VegitationModel> _oVegitationModel = new List<VegitationModel>();
+
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    string path = "Vegitation/GetAllVegitations";
+                    client.BaseAddress = new Uri(GlobalValue.BaseUrl);
+
+                    HttpResponseMessage response = client.GetAsync(path).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var value = response.Content.ReadAsStringAsync().Result;
+                        _oVegitationModel = JsonConvert.DeserializeObject<List<VegitationModel>>(value);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("error is" + ex.ToString());
+                throw ex;
+            }
+            return _oVegitationModel;
+        }
+
+        public VegitationModel GetVegitationById(int id)
+        {
+            VegitationModel _oVegitationModel = new VegitationModel();
+            using (HttpClient client = new HttpClient())
+            {
+                string path = "Vegitation/GetVegitationById/" + id;
+                client.BaseAddress = new Uri(GlobalValue.BaseUrl);
+
+                HttpResponseMessage response = client.GetAsync(path).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    var value = response.Content.ReadAsStringAsync().Result;
+                    _oVegitationModel = JsonConvert.DeserializeObject<VegitationModel>(value);
+                }
+            }
+            return _oVegitationModel;
+        }
+
+        public bool DeleteVegitationById(int id)
+        {
+            bool result = false;
+
+            using (HttpClient client = new HttpClient())
+            {
+                string path = "Vegitation/DeleteVegitationById/" + id;
+                client.BaseAddress = new Uri(GlobalValue.BaseUrl);
+
+                HttpResponseMessage response = client.GetAsync(path).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    var value = response.Content.ReadAsStringAsync().Result;
+                    result = JsonConvert.DeserializeObject<bool>(value);
+                }
+            }
+
+            return result;
+        }
+
+        public bool AddVegitation(VegitationModel _Vegitation)
+        {
+            bool result = false;
+
+            using (HttpClient client = new HttpClient())
+            {
+                string path = "Vegitation/AddVegitation";
+                client.BaseAddress = new Uri(GlobalValue.BaseUrl);
+                var json = JsonConvert.SerializeObject(_Vegitation);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = client.PostAsync(path, content).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    string jsnString = response.Content.ReadAsStringAsync().Result;
+                    result = JsonConvert.DeserializeObject<bool>(jsnString);
+                }
+            }
+
+            return result;
+        }
+
+        public bool EditVegitation(VegitationModel _Vegitation)
+        {
+            bool result = false;
+            using (HttpClient client = new HttpClient())
+            {
+                string path = "Vegitation/EditVegitation";
+                client.BaseAddress = new Uri(GlobalValue.BaseUrl);
+                var json = JsonConvert.SerializeObject(_Vegitation);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = client.PostAsync(path, content).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    string jsnString = response.Content.ReadAsStringAsync().Result;
+                    result = JsonConvert.DeserializeObject<bool>(jsnString);
+                }
+            }
+            return result;
+        }
+
+        #endregion Vegitation
     }
 }

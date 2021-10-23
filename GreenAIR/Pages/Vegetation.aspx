@@ -1,81 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Module.Master" AutoEventWireup="true" CodeBehind="MonitoringCenter.aspx.cs" Inherits="GreenAIR.Pages.MonitoringCenter" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Module.Master" AutoEventWireup="true" CodeBehind="Vegetation.aspx.cs" Inherits="GreenAIR.Pages.Vegetation" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <style type="text/css">
-        .switch
-        {
-            position: relative;
-            display: inline-block;
-            width: 50px;
-            height: 24px;
-        }
-        
-        .switch input
-        {
-            opacity: 0;
-        }
-        
-        .slider
-        {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-        
-        .slider:before
-        {
-            position: absolute;
-            content: "";
-            height: 16px;
-            width: 16px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-        
-        input:checked + .slider
-        {
-            background-color: #2196F3;
-        }
-        
-        input:focus + .slider
-        {
-            box-shadow: 0 0 1px #2196F3;
-        }
-        
-        input:checked + .slider:before
-        {
-            -webkit-transform: translateX(26px);
-            -ms-transform: translateX(26px);
-            transform: translateX(26px);
-        }
-        
-        /* Rounded sliders */
-        .slider.round
-        {
-            border-radius: 34px;
-        }
-        
-        .slider.round:before
-        {
-            border-radius: 50%;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <asp:MultiView ID="mvParent" runat="server">
         <asp:View ID="View1" runat="server">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Monitoring Centers</h3>
+                    <h3 class="box-title">Vegitation</h3>
                 </div>
                 <div class="box-body">
                     <div class="row">
@@ -93,12 +25,12 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <asp:GridView ID="gvMonitoringCenters" runat="server" AutoGenerateColumns="False" AllowPaging="True" ShowHeaderWhenEmpty="True"
-                                Class="table table-bordered table-hover" OnPageIndexChanging="gvMonitoringCenters_PageIndexChanging" OnRowCommand="gvMonitoringCenters_RowCommand">
+                            <asp:GridView ID="gvVegitations" runat="server" AutoGenerateColumns="False" AllowPaging="True" ShowHeaderWhenEmpty="True"
+                                Class="table table-bordered table-hover" OnPageIndexChanging="gvVegitations_PageIndexChanging" OnRowCommand="gvVegitations_RowCommand">
                                 <Columns>
-                                    <asp:TemplateField HeaderText="Center ID">
+                                    <asp:TemplateField HeaderText="ID" Visible="false">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblgvCenterId" runat="server" Text='<%# Bind("CenterID") %>'></asp:Label>
+                                            <asp:Label ID="lblgvId" runat="server" Text='<%# Bind("ID") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Name">
@@ -106,9 +38,14 @@
                                             <asp:Label ID="lblgvName" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Location">
+                                    <asp:TemplateField HeaderText="Species">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblgvLocation" runat="server" Text='<%# Bind("Location") %>'></asp:Label>
+                                            <asp:Label ID="lblgvSpecies" runat="server" Text='<%# Bind("Species") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="How many per unit?">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblgvHowManyPerUnit" runat="server" Text='<%# Bind("HowManyPerUnit") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField>
@@ -137,14 +74,14 @@
         <asp:View ID="View2" runat="server">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Monitoring Centers</h3>
+                    <h3 class="box-title">Vegitation</h3>
                 </div>
                 <div class="box-body">
                     <div class="form-horizontal">
-                        <div id="groupCenterId" runat="server" class="form-group">
-                            <label class="col-sm-2 control-label">Center ID:</label>
+                        <div id="groupId" runat="server" class="form-group">
+                            <label class="col-sm-2 control-label">ID:</label>
                             <div class="col-sm-4">
-                                <asp:TextBox ID="txtCenterID" runat="server" CssClass="form-control" MaxLength="10"></asp:TextBox>
+                                <asp:TextBox ID="txtID" runat="server" CssClass="form-control" MaxLength="10"></asp:TextBox>
                             </div>
                         </div>
                         <div class="form-group">
@@ -154,19 +91,15 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Location:</label>
+                            <label class="col-sm-2 control-label">Species:</label>
                             <div class="col-sm-4">
-                                <asp:DropDownList ID="ddlLocation" runat="server" CssClass="form-control">
-                                </asp:DropDownList>
+                                <asp:TextBox ID="txtSpecies" runat="server" CssClass="form-control" MaxLength="50"></asp:TextBox>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Status:</label>
+                            <label class="col-sm-2 control-label">How Many Per Unit:</label>
                             <div class="col-sm-4">
-                                <label class="switch">
-                                    <asp:CheckBox ID="chkOnOff" runat="server" Checked="false" />
-                                    <span class="slider round"></span>
-                                </label>
+                                <asp:TextBox ID="txtHowManyPerUnit" runat="server" CssClass="form-control" MaxLength="10"></asp:TextBox>
                             </div>
                         </div>
                     </div>
@@ -213,10 +146,10 @@
     </script>
     <script type="text/javascript">
         function AttachValidation() {
-            $('#<% = txtCenterID.ClientID %>').addClass('validate[required]');
+            $('#<% = txtID.ClientID %>').addClass('validate[required]');
             $('#<% = txtName.ClientID %>').addClass('validate[required]');
-            $('#<% = ddlLocation.ClientID %>').addClass('validate[required]');
-            $('#<% = chkOnOff.ClientID %>').addClass('validate[required]');
+            $('#<% = txtSpecies.ClientID %>').addClass('validate[required]');
+            $('#<% = txtHowManyPerUnit.ClientID %>').addClass('validate[required,onlyNumberSp]');
 
             $("#form1").validationEngine('attach', { promptPosition: "centerRight", scroll: false });
             var valid = $("#form1").validationEngine('validate');

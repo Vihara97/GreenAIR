@@ -15,7 +15,9 @@ namespace GreenAIR.REPOSITORY.Models
         public int DeviceID { get; set; }
 
         [Column(Order = 1)]
-        [StringLength(100)]
-        public string Location { get; set; }
+        public int Location { get; set; }
+
+        [Column(Order = 2)]
+        public int Status { get; set; }
     }
 }

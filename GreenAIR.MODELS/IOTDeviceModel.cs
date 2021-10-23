@@ -9,6 +9,8 @@ namespace GreenAIR.MODELS
     {
         public int DeviceID { get; set; }
 
-        public string Location { get; set; }
+        public int Location { get; set; }
+
+        public int Status { get; set; }
     }
 }

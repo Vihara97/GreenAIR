@@ -19,7 +19,17 @@ namespace GreenAIR.REPOSITORY.Models
         public string Name { get; set; }
 
         [Column(Order = 2)]
-        [StringLength(100)]
-        public string LocationAddress { get; set; }
+        public int LocationAddress { get; set; }
+
+        [Column(Order = 3)]
+        [StringLength(50)]
+        public string MobileNoOrEmail { get; set; }
+
+        [Column(Order = 4)]
+        [StringLength(50)]
+        public string Password { get; set; }
+
+        [Column(Order = 5)]
+        public int Status { get; set; }
     }
 }
